@@ -32,7 +32,9 @@ typedef NS_ENUM (NSUInteger, RSDFMonthsDisplayStyle) {
     /// Short uppercase display style: JAN, FEB, MAR, APR, ...
     RSDFMonthsDisplayStyleShortUppercase,
     /// Full display style: January, February, March, April, ...
-    RSDFMonthsDisplayStyleFull
+    RSDFMonthsDisplayStyleFull,
+    /// Use df_dateFormatterNamed to create custom formatter
+    RSDFMonthsDisplayStyleCustom
 };
 
 /**

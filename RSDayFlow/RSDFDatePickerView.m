@@ -775,13 +775,17 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
         switch (monthHeader.displayStyle) {
             case RSDFMonthsDisplayStyleShortUppercase:
                 monthString = [([dateFormatter shortStandaloneMonthSymbols][date.month - 1]) uppercaseString];
+                monthHeader.dateLabel.text = [NSString stringWithFormat:@"%@ %tu", monthString, date.year];
                 break;
+                
             case RSDFMonthsDisplayStyleFull:
                 monthString = [dateFormatter monthSymbols][date.month - 1];
+                monthHeader.dateLabel.text = [NSString stringWithFormat:@"%@ %tu", monthString, date.year];
+                
                 break;
+            case RSDFMonthsDisplayStyleCustom:
+                monthHeader.dateLabel.text = [dateFormatter stringFromDate:formattedDate];
         }
-        
-        monthHeader.dateLabel.text = [NSString stringWithFormat:@"%@ %tu", monthString, date.year];
         
         RSDFDatePickerDate today = [self pickerDateFromDate:_today];
         if ( (today.month == date.month) && (today.year == date.year) ) {
