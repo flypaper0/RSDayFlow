@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @discussion Can be overridden in subclasses for customization.
  */
-- (UIColor*)todayBackgdoundColor;
+- (UIColor*)todayBackgroundColor;
 
 @end
 

@@ -247,7 +247,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     return [RSDFDatePickerDaysOfWeekView class];
 }
 
-- (UIColor*)todayBackgdoundColor
+- (UIColor*)todayBackgroundColor
 {
   return [UIColor clearColor];
 }
@@ -744,7 +744,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
             cell.outOfRange = NO;
         }
       
-        cell.backgroundColor = cell.today ? self.todayBackgdoundColor : UIColor.clearColor;
+        cell.backgroundColor = cell.today ? self.todayBackgroundColor : UIColor.clearColor;
         
         cell.accessibilityLabel = [NSDateFormatter localizedStringFromDate:cellDate dateStyle:NSDateFormatterLongStyle timeStyle:NSDateFormatterNoStyle];
     }
