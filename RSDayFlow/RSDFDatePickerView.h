@@ -191,6 +191,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (CGFloat)daysOfWeekViewHeight;
 
+/**
+ Today cell background color. Default clear.
+ 
+ @discussion Can be overridden in subclasses for customization.
+ */
+- (UIColor*)todayBackgdoundColor;
+
 @end
 
 /**
