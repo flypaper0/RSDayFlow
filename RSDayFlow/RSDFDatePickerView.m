@@ -54,6 +54,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
 // Start and end date are date limits displayed in the calendar (no infinite scrolling).
 @property (nonatomic, readonly, strong) NSDate *startDate;
 @property (nonatomic, readonly, strong) NSDate *endDate;
+@property (nonatomic, readonly, strong) NSArray *dates;
 
 @end
 
@@ -92,13 +93,14 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar startDate:(NSDate *)startDate endDate:(NSDate *)endDate
+- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar startDate:(nullable NSDate *)startDate endDate:(NSDate *)endDate withDates:(NSArray *)dates;
 {
     self = [super initWithFrame:frame];
     if (self) {
         _calendar = calendar;
         _startDate = startDate ? [self dateWithoutTimeComponents:startDate] : nil;
         _endDate = endDate ? [self dateWithoutTimeComponents:endDate] : nil;
+        _dates = dates;
         [self commonInitializer];
     }
     return self;
@@ -106,7 +108,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
 
 - (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar
 {
-    self = [self initWithFrame:frame calendar:calendar startDate:nil endDate:nil];
+    self = [self initWithFrame:frame calendar:calendar startDate:nil endDate:nil withDates: nil];
     return self;
 }
 
@@ -701,6 +703,11 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     
     cell.dateLabel.isAccessibilityElement = NO;
     cell.isAccessibilityElement = !cell.notThisMonth;
+    
+    
+    if (_dates) {
+        cell.available = [_dates containsObject:cellDate];
+    }
     
     if (!cell.isNotThisMonth) {
         NSUInteger cellDateWeekday = [self.calendar components:NSCalendarUnitWeekday fromDate:cellDate].weekday;

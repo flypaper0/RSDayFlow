@@ -57,6 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion Cells with these days do not display the today image, the overlay image, the marks and the divider image.
 */
 @property (nonatomic, getter = isNotThisMonth) BOOL notThisMonth;
+@property (nonatomic, getter = isAvailable) BOOL available;
 
 /**
  A Boolean value that determines whether the cell's day is day off.

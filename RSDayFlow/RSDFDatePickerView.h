@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param startDate The first selectable date.
  @param endDate The last selectable date.
  */
-- (instancetype)initWithFrame:(CGRect)frame calendar:(nullable NSCalendar *)calendar startDate:(nullable NSDate *)startDate endDate:(nullable NSDate *)endDate;
+- (instancetype)initWithFrame:(CGRect)frame calendar:(nullable NSCalendar *)calendar startDate:(nullable NSDate *)startDate endDate:(nullable NSDate *)endDate withDates:(nullable NSArray *)dates;
 
 ///-----------------------------
 /// @name Accessing the Delegate

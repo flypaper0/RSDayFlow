@@ -266,7 +266,8 @@ CGFloat roundOnBase(CGFloat x, CGFloat base) {
             }
         }
     }
-
+    
+    self.dateLabel.textColor = self.isAvailable ? [self dayLabelTextColor] : [self outOfRangeDayLabelTextColor];
 }
 
 + (NSCache *)imageCache
